@@ -47,8 +47,8 @@ public class Cliente {
 	@Column(name = "clie_tipo_registro")
 	private String tipoRegistro;
 	
-	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private Reserva reserva;
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Reserva> reserva;
 
 	//GET Y SET
 	public Integer getId() {
@@ -109,11 +109,13 @@ public class Cliente {
 
 	
 
-	public Reserva getReserva() {
+
+
+	public List<Reserva> getReserva() {
 		return reserva;
 	}
 
-	public void setReserva(Reserva reserva) {
+	public void setReserva(List<Reserva> reserva) {
 		this.reserva = reserva;
 	}
 

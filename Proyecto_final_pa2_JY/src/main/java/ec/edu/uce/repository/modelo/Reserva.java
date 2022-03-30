@@ -49,12 +49,12 @@ public class Reserva {
 	@Column(name = "rese_estado")
 	private String estado;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="rese_fk_cliente")
 	private Cliente cliente;
 	
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="rese_fk_vehiculo")
 	private Vehiculo vehiculo;
 	

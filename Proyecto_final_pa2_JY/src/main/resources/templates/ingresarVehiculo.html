@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<h1>Ingresar vehículo</h1>
+	<form th:action="@{/empleados/registrarVehiculo}" th:object="${vehiculo}" method="POST">
+		<table class="table table-dark">
+			<tr>
+				<td>
+					<label>Placa:</label>
+				</td>
+				<td>
+					<input type="text" id="placa" th:field="*{placa}">
+				</td>
+			</tr>
+			<td>
+				<label>Marca:</label>
+			</td>
+			<td>
+				<input type="text" id="marca" th:field="*{marca}">
+			</td>
+			<tr>
+				<td>
+					<label>Modelo:</label>
+				</td>
+				<td>
+					<input type="text" id="name" th:field="*{modelo}">
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label>Año de fabricación:</label>
+				</td>
+				<td>
+					<input type="text" id="anio" th:field="*{anioFabricacion}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Valor por día:</label>
+				</td>
+				<td>
+					<input type="number" step="0.1" id="valor" th:field="*{valorPorDia}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>País de fabricación:</label>
+				</td>
+				<td>
+					<input type="text" id="pais" th:field="*{paisFabricacion}">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>Avaluo:</label>
+				</td>
+				<td>
+					<input type="number" id="avaluo" th:field="*{avaluo}">
+				</td>
+			</tr>
+
+				<tr>
+				<td>
+					<label>Cilindraje:</label>
+				</td>
+				<td>
+					<input type="number" step="0.1" id="cilindraje" th:field="*{cilindraje}">
+				</td>
+			</tr>
+			
+			<tr>
+			</tr>
+		</table>
+		<input type="submit" value="Agregar Vehiculo">
+	</form>
+</body>
+
+
+
+</html>

@@ -2,6 +2,7 @@ package ec.edu.uce.repository.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -56,8 +58,8 @@ public class Vehiculo {
 	@Column(name = "vehi_cilindraje")
 	private Float cilindraje;
 	
-	@OneToOne(mappedBy = "vehiculo", cascade = CascadeType.ALL)
-	private Reserva reserva;
+	@OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL)
+	private List<Reserva> reservas;
 
 	//GET Y SET
 	public Integer getId() {
@@ -151,12 +153,14 @@ public class Vehiculo {
 		this.cilindraje = cilindraje;
 	}
 
-	public Reserva getReserva() {
-		return reserva;
+	
+
+	public List<Reserva> getReservas() {
+		return reservas;
 	}
 
-	public void setReserva(Reserva reserva) {
-		this.reserva = reserva;
+	public void setReservas(List<Reserva> reservas) {
+		this.reservas = reservas;
 	}
 
 	@Override

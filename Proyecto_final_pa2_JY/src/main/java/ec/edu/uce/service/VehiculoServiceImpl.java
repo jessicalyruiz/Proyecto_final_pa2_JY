@@ -79,12 +79,13 @@ public class VehiculoServiceImpl implements IVehiculoService{
 		
 		Cliente cliente=this.clienteService.buscarCedula(cedula);
 		
-		if(vehiculo.getEstado().equalsIgnoreCase("disponible")) {
+		if(vehiculo.getEstado().equalsIgnoreCase("D")) {
 			LOG.info("vehiculo disponible");
 			BigDecimal valorsubTotal=vehiculo.getValorPorDia().multiply(new BigDecimal(dias));
 			BigDecimal valorIVA=valorsubTotal.multiply(new BigDecimal(0.12));
 			BigDecimal valorTotal=valorsubTotal.add(valorIVA);
 			
+			List<Reserva> reservasCliente=cliente.getReserva();
 			Reserva reserva=new Reserva();
 			reserva.setCliente(cliente);
 			reserva.setEstado("generada");
@@ -97,11 +98,15 @@ public class VehiculoServiceImpl implements IVehiculoService{
 			reserva.setNumero(this.generarNumeroReserva());
 			this.reservaService.create(reserva);
 			
-			vehiculo.setReserva(reserva);
+			List<Reserva> reservaVehiculo=vehiculo.getReservas();
+			reservaVehiculo.add(reserva);
+			vehiculo.setReservas(reservaVehiculo);
 			vehiculo.setFechaDisponibilidad(fechaFinal);
+			vehiculo.setEstado("N");
 			this.vehiculoRepo.update(vehiculo);
 			
-			cliente.setReserva(reserva);
+			reservasCliente.add(reserva);
+			cliente.setReserva(reservasCliente);
 			this.clienteService.update(cliente);
 		}else {
 			LOG.info("Vehiculo no disponible en esa fecha");

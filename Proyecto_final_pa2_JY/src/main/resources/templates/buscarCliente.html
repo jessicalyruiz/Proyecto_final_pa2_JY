@@ -11,16 +11,16 @@
 </head>
 
 <body>
-<h1>Buscar vehículo</h1>
-	<form th:action="@{/empleados/mostrarVehiculo}" th:object="${vehiculo}" method="get">
+<h1>Buscar cliente</h1>
+	<form th:action="@{/empleados/mostrarCliente}" th:object="${cliente}" method="get">
 		<div class="table table-dark table-striped">
 		<table>
 			<tr>
 				<td>
-					<label>Placa:</label>
+					<label>Cedula del cliente:</label>
 				</td>
 				<td>
-					<input type="text" id="placa" th:field="*{placa}">
+					<input type="text" id="name" th:field="*{cedula}">
 				</td>
 			</tr>
 
