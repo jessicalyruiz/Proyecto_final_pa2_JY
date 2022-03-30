@@ -8,4 +8,8 @@ public interface IClienteService {
 	public Cliente read(Integer id); 
 	public void update(Cliente cliente); 
 	public void delete(Integer id); 
+	
+	public Cliente buscarCedula(String cedula);
+	
+	public void registrarse(Cliente cliente);
 }

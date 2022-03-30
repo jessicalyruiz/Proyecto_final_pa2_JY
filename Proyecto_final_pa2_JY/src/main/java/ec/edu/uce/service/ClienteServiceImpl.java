@@ -36,4 +36,19 @@ public class ClienteServiceImpl implements IClienteService{
 		this.clienteRepo.delete(id);
 	}
 
+	@Override
+	public Cliente buscarCedula(String cedula) {
+		// TODO Auto-generated method stub
+		return this.clienteRepo.buscarCedula(cedula);
+	}
+
+	@Override
+	public void registrarse(Cliente cliente) {
+		// TODO Auto-generated method stub
+		cliente.setTipoRegistro("C");
+		this.create(cliente);
+	}
+
+
+
 }

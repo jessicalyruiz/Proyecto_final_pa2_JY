@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name = "cliente")
 public class Cliente {
@@ -35,7 +37,8 @@ public class Cliente {
 	@Column(name = "clie_cedula")
 	private String cedula;
 
-	@Column(name = "clie_fecha_nacimiento")
+	@Column(name = "clie_fecha_nacimiento", columnDefinition = "TIMESTAMP")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fechaNacimiento;
 	
 	@Column(name = "clie_genero")

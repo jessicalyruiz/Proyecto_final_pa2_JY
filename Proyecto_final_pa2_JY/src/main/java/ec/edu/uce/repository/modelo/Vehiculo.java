@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "vehiculo")
 public class Vehiculo {
@@ -32,8 +34,8 @@ public class Vehiculo {
 	@Column(name = "vehi_modelo")
 	private String modelo;
 	
-	@Column(name = "vehi_disponible")
-	private String disponible;
+	@Column(name = "vehi_estado")
+	private String estado;
 	
 	@Column(name = "vehi_anio_fabricacion")
 	private String anioFabricacion;
@@ -41,7 +43,8 @@ public class Vehiculo {
 	@Column(name = "vehi_valor_dia")
 	private BigDecimal valorPorDia;
 	
-	@Column(name = "vehi_fecha_disponibilidad")
+	@Column(name = "vehi_fecha_disponibilidad", columnDefinition = "TIMESTAMP")
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	private LocalDateTime fechaDisponibilidad;
 	
 	@Column(name = "vehi_paisfabricacion")
@@ -89,12 +92,15 @@ public class Vehiculo {
 		this.modelo = modelo;
 	}
 
-	public String getDisponible() {
-		return disponible;
+	
+
+
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setDisponible(String disponible) {
-		this.disponible = disponible;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public String getAnioFabricacion() {
@@ -155,11 +161,13 @@ public class Vehiculo {
 
 	@Override
 	public String toString() {
-		return "Vehiculo [id=" + id + ", placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", disponible="
-				+ disponible + ", anioFabricacion=" + anioFabricacion + ", valorPorDia=" + valorPorDia
+		return "Vehiculo [id=" + id + ", placa=" + placa + ", marca=" + marca + ", modelo=" + modelo + ", Estado="
+				+ estado + ", anioFabricacion=" + anioFabricacion + ", valorPorDia=" + valorPorDia
 				+ ", fechaDisponibilidad=" + fechaDisponibilidad + ", paisFabricacion=" + paisFabricacion + ", avaluo="
 				+ avaluo + ", cilindraje=" + cilindraje + "]";
 	}
+
+
 	
 	
 }

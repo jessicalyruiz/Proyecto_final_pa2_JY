@@ -2,6 +2,7 @@ package ec.edu.uce.repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +38,13 @@ public class ClienteRepoImpl implements IClienteRepo{
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		this.entityManager.remove(this.read(id));
+	}
+
+	@Override
+	public Cliente buscarCedula(String cedula) {
+		TypedQuery<Cliente> myQuery=this.entityManager.createQuery("Select c from Cliente c where c.cedula=:valor", Cliente.class);
+		myQuery.setParameter("valor", cedula);
+		return myQuery.getSingleResult();
 	}
 
 }

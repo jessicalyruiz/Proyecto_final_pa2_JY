@@ -13,6 +13,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "cobro")
 public class Cobro {
@@ -25,7 +27,8 @@ public class Cobro {
 	private Integer id;
 	
 	
-	@Column(name = "cobr_fecha")
+	@Column(name = "cobr_fecha", columnDefinition = "TIMESTAMP")
+	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	private LocalDateTime fecha;
 	
 	@OneToOne(mappedBy = "cobro", cascade = CascadeType.ALL)
