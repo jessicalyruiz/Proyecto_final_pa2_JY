@@ -249,13 +249,20 @@ public class VehiculoServiceImpl implements IVehiculoService{
 		
 		
 		
-		BigDecimal valorSubtotal = new BigDecimal(0);
-		BigDecimal valorTotal= new BigDecimal(0);
+		
 		for (Vehiculo v : vehiculosEnFechaIngresada) {
-			List<Reserva> reservasVehiculo=v.getReservas();
+			BigDecimal valorSubtotal = new BigDecimal(0);
+			BigDecimal valorTotal= new BigDecimal(0);
+			List<Reserva> reservasVehiculo=this.buscarReservasVehiculoFecha(v, fechaInicio, fechaFin);
+			System.out.println("***** vehiculo"+v);
+			
 			for (Reserva r : reservasVehiculo) {
+				System.out.println("*****"+r);
+				System.out.println("**** subtotal"+valorSubtotal);
 				valorSubtotal=valorSubtotal.add(r.getCobro().getValorSubtotal());
 				valorTotal=valorTotal.add(r.getCobro().getValorTotalPagar());
+				System.out.println("**** subtotal:"+valorSubtotal);
+				System.out.println("**** total"+valorTotal);
 			}
 			VehiculoVIP vehiculoVIP=new VehiculoVIP(v.getPlaca(), v.getModelo(), v.getMarca(), v.getAnioFabricacion(), v.getValorPorDia(), valorSubtotal, valorTotal);
 			vehiculosVIP.add(vehiculoVIP);
@@ -267,7 +274,20 @@ public class VehiculoServiceImpl implements IVehiculoService{
 		
 	}
 
-	@Override
+	public List<Reserva> buscarReservasVehiculoFecha(Vehiculo vechiculo, LocalDateTime fechaInicio, LocalDateTime FechaFin){
+		List<Reserva> reservasVehiculo=vechiculo.getReservas();
+		List<Reserva> reservasEnLasFechas=new ArrayList<>();
+		for (Reserva r : reservasVehiculo) {
+			if(r.getFechaInicio().isAfter(fechaInicio)&& r.getFechaFin().isBefore(FechaFin)) {
+				reservasEnLasFechas.add(r);
+			}
+		}
+		
+		return reservasEnLasFechas;
+		
+	}
+	
+	
 	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		// TODO Auto-generated method stub
 		return this.vehiculoRepo.buscarFechas(fechaInicio, fechaFin);

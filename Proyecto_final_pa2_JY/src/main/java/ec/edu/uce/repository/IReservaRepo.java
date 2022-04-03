@@ -18,4 +18,6 @@ public interface IReservaRepo {
 	
 	public Reserva buscarNumero(String numero);
 	public List<Reserva> reporteReservas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
+	
+	//public List<Reserva> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }

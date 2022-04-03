@@ -152,7 +152,7 @@ public class ProyectoFinalPa2JyApplication implements CommandLineRunner{
 		}
 		
 		//reporte VEhiculos VIP
-		List<VehiculoVIP> listaVehiculoVIP=this.vehiculoService.reporteVEhiculosVIP(8, 2022);
+		List<VehiculoVIP> listaVehiculoVIP=this.vehiculoService.reporteVEhiculosVIP(4, 2022);
 		for (VehiculoVIP c : listaVehiculoVIP) {
 			System.out.println(c.toString());
 		}

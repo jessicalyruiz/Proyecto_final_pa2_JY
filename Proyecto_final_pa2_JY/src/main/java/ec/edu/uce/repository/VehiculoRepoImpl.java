@@ -83,15 +83,17 @@ public class VehiculoRepoImpl implements IVehiculoRepo{
 		return listaVehiculos;
 	}
 
+	
 	@Override
 	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v WHERE v.reservas.fechaInicio>=:valor1 AND v.reservas.fechaFin<=:valor2 ", Vehiculo.class);
+		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v JOIN v.reservas r WHERE r.fechaInicio>=:valor1 AND r.fechaFin<=:valor2 ", Vehiculo.class);
 		myQuery.setParameter("valor1", fechaInicio);
 		myQuery.setParameter("valor2", fechaFin);
 		//relacionamientos
 		List<Vehiculo> listaVehiculos=myQuery.getResultList();
 		for (Vehiculo v : listaVehiculos) {
 			LOG.info("reserva"+ v.getReservas());
+			System.out.println(v.toString());
 		}
 		return listaVehiculos;
 	}

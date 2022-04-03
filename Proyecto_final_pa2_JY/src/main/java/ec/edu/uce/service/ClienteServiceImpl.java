@@ -69,9 +69,10 @@ public class ClienteServiceImpl implements IClienteService {
 	public List<ClienteVIP> reporteClientesVIP() {
 		List<Cliente> listaClientes = this.buscarTodosClientes();
 		List<ClienteVIP> clientesVIP = new ArrayList<>();
-		BigDecimal valorIVA = new BigDecimal(0);
-		BigDecimal valorTotal= new BigDecimal(0);
+		
 		for (Cliente c : listaClientes) {
+			BigDecimal valorIVA = new BigDecimal(0);
+			BigDecimal valorTotal= new BigDecimal(0);
 			List<Reserva> reservasCliente = c.getReserva();
 			for (Reserva r : reservasCliente) {
 				valorIVA=valorIVA.add(r.getCobro().getValorIVA());
