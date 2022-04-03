@@ -1,6 +1,9 @@
 package ec.edu.uce.service;
 
+import java.util.List;
+
 import ec.edu.uce.repository.modelo.Cliente;
+import ec.edu.uce.repository.modelo.ClienteVIP;
 
 public interface IClienteService {
 
@@ -12,4 +15,7 @@ public interface IClienteService {
 	public Cliente buscarCedula(String cedula);
 	
 	public void registrarse(Cliente cliente);
+	public List<Cliente> buscarTodosClientes();
+	
+	public List<ClienteVIP> reporteClientesVIP();
 }

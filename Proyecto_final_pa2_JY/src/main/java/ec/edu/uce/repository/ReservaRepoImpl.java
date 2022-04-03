@@ -1,21 +1,27 @@
 package ec.edu.uce.repository;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import ec.edu.uce.ProyectoFinalPa2JyApplication;
 import ec.edu.uce.repository.modelo.Reserva;
 
 @Repository
 @Transactional
 public class ReservaRepoImpl implements IReservaRepo {
 
+	private static final Logger LOG=Logger.getLogger(ReservaRepoImpl.class);
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -62,5 +68,22 @@ public class ReservaRepoImpl implements IReservaRepo {
 		TypedQuery<Reserva> myQuery=this.entityManager.createQuery("Select r from Reserva r where r.numero=:valor", Reserva.class);
 		myQuery.setParameter("valor", numero);
 		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public List<Reserva> reporteReservas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		TypedQuery<Reserva> myQuery=this.entityManager.createQuery("Select r from Reserva r where r.fechaInicio>=:valor1 and r.fechaFin<=:valor2", Reserva.class);
+		myQuery.setParameter("valor1", fechaInicio);
+		myQuery.setParameter("valor2", fechaFin);
+		
+		//relacionamientos
+		List<Reserva> listaReservas=myQuery.getResultList();
+		for (Reserva r : listaReservas) {
+			LOG.info("Cliente"+r.getCliente());
+			LOG.info("Cobro"+r.getCobro());
+			LOG.info("vehiculo"+r.getVehiculo());
+		}
+		
+		return listaReservas;
 	}
 }

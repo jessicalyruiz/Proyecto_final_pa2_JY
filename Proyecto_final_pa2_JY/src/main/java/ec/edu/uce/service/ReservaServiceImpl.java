@@ -1,6 +1,8 @@
 package ec.edu.uce.service;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +59,12 @@ public class ReservaServiceImpl implements IReservaService {
 	public Reserva buscarNumero(String numero) {
 		// TODO Auto-generated method stub
 		return this.reservaRepo.buscarNumero(numero);
+	}
+
+	@Override
+	public List<Reserva> reporteReservas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		// TODO Auto-generated method stub
+		return this.reservaRepo.reporteReservas(fechaInicio, fechaFin);
 	}
 
 

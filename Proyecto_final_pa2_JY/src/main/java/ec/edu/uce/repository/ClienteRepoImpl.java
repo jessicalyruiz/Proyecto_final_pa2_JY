@@ -63,4 +63,15 @@ public class ClienteRepoImpl implements IClienteRepo{
 		return myQuery.getSingleResult();
 	}
 
+	@Override
+	public List<Cliente> buscarTodosClientes() {
+		TypedQuery<Cliente> myQuery=this.entityManager.createQuery("Select c from Cliente c", Cliente.class);
+		//relacionamientos
+		List<Cliente> listaClientes=myQuery.getResultList();
+		for (Cliente c : listaClientes) {
+			LOG.info("reserva"+c.getReserva());
+		}
+		return listaClientes;
+	}
+
 }

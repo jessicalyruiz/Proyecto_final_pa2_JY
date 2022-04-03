@@ -3,7 +3,11 @@ package ec.edu.uce.service;
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 //import org.slf4j.Logger;
@@ -16,10 +20,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ec.edu.uce.repository.IVehiculoRepo;
 import ec.edu.uce.repository.modelo.Cliente;
+import ec.edu.uce.repository.modelo.ClienteVIP;
 import ec.edu.uce.repository.modelo.Cobro;
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.repository.modelo.VehiculoBuscar;
+import ec.edu.uce.repository.modelo.VehiculoVIP;
 
 @Service
 public class VehiculoServiceImpl implements IVehiculoService{
@@ -76,6 +82,7 @@ public class VehiculoServiceImpl implements IVehiculoService{
 		// TODO Auto-generated method stub
 		return this.vehiculoRepo.buscarPlaca(placa);
 	}
+	
 /*
 	@Override
 	@Transactional
@@ -217,5 +224,52 @@ public class VehiculoServiceImpl implements IVehiculoService{
 		vehiculo.setEstado("ND"); //no disponible
 		this.update(vehiculo);
 		return reserva;
+	}
+
+	@Override
+	public List<Vehiculo> buscarTodosVehiculos() {
+		// TODO Auto-generated method stub
+		return this.vehiculoRepo.buscarTodosVehiculos();
+	}
+
+	@Override
+	public List<VehiculoVIP> reporteVEhiculosVIP(Integer mes, Integer anio) {
+		//List<Vehiculo> listaVehiculos=this.buscarTodosVehiculos();
+		LocalDateTime fechaInicio=LocalDateTime.of(anio, mes, 1, 0, 0);
+		LocalDateTime fechaFin;
+		if (mes==2) {
+			fechaFin=LocalDateTime.of(anio, mes, 28, 0, 0);
+		}else if(mes==4||mes==6||mes==9||mes==11) {
+			fechaFin=LocalDateTime.of(anio, mes, 30, 0, 0);
+		}else {
+			fechaFin=LocalDateTime.of(anio, mes, 31, 0, 0);
+		}
+		List<Vehiculo> vehiculosEnFechaIngresada=this.buscarFechas(fechaInicio, fechaFin);
+		List<VehiculoVIP>vehiculosVIP=new ArrayList<>();
+		
+		
+		
+		BigDecimal valorSubtotal = new BigDecimal(0);
+		BigDecimal valorTotal= new BigDecimal(0);
+		for (Vehiculo v : vehiculosEnFechaIngresada) {
+			List<Reserva> reservasVehiculo=v.getReservas();
+			for (Reserva r : reservasVehiculo) {
+				valorSubtotal=valorSubtotal.add(r.getCobro().getValorSubtotal());
+				valorTotal=valorTotal.add(r.getCobro().getValorTotalPagar());
+			}
+			VehiculoVIP vehiculoVIP=new VehiculoVIP(v.getPlaca(), v.getModelo(), v.getMarca(), v.getAnioFabricacion(), v.getValorPorDia(), valorSubtotal, valorTotal);
+			vehiculosVIP.add(vehiculoVIP);
+		}
+		List<VehiculoVIP> listaOrdenada=vehiculosVIP.parallelStream().sorted(Comparator.comparing(VehiculoVIP::getValorTotal)).collect(Collectors.toList());
+		//ordeno mayor a menor
+		listaOrdenada=listaOrdenada.stream().sorted(Collections.reverseOrder(Comparator.comparing(VehiculoVIP::getValorTotal))).collect(Collectors.toList());
+		return listaOrdenada;
+		
+	}
+
+	@Override
+	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		// TODO Auto-generated method stub
+		return this.vehiculoRepo.buscarFechas(fechaInicio, fechaFin);
 	}
 }

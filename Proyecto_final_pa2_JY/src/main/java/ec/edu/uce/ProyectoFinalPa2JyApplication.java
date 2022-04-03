@@ -22,9 +22,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.config.IntervalTask;
 
 import ec.edu.uce.repository.modelo.Cliente;
+import ec.edu.uce.repository.modelo.ClienteVIP;
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.repository.modelo.VehiculoBuscar;
+import ec.edu.uce.repository.modelo.VehiculoVIP;
 import ec.edu.uce.service.IClienteService;
 import ec.edu.uce.service.IReservaService;
 import ec.edu.uce.service.IVehiculoService;
@@ -142,6 +144,19 @@ public class ProyectoFinalPa2JyApplication implements CommandLineRunner{
 		LocalDateTime fechaFin2=LocalDateTime.of(2022, 10, 12, 10, 0);	
 		
 		//System.out.println(fechasSolapadas(fechaInicio, fechaFin, fechaInicio2, fechaFin2));
+		
+		//reporte Clientes VIP
+		List<ClienteVIP> listaClienteVIP=this.clienteService.reporteClientesVIP();
+		for (ClienteVIP c : listaClienteVIP) {
+			System.out.println(c.toString());
+		}
+		
+		//reporte VEhiculos VIP
+		List<VehiculoVIP> listaVehiculoVIP=this.vehiculoService.reporteVEhiculosVIP(8, 2022);
+		for (VehiculoVIP c : listaVehiculoVIP) {
+			System.out.println(c.toString());
+		}
+		
 		
 	}
 

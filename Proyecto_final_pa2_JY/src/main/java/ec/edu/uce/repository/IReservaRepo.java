@@ -1,6 +1,8 @@
 package ec.edu.uce.repository;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
+import java.util.List;
 
 import ec.edu.uce.repository.modelo.Reserva;
 
@@ -15,4 +17,5 @@ public interface IReservaRepo {
 	public BigInteger obtenerTotalRegistros();
 	
 	public Reserva buscarNumero(String numero);
+	public List<Reserva> reporteReservas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
 }

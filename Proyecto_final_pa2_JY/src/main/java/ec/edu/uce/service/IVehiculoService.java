@@ -7,6 +7,7 @@ import java.util.List;
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.repository.modelo.VehiculoBuscar;
+import ec.edu.uce.repository.modelo.VehiculoVIP;
 
 public interface IVehiculoService {
 
@@ -22,5 +23,9 @@ public interface IVehiculoService {
 	public BigDecimal calcularPagoVehiculo(String placa, String cedula,LocalDateTime fechaInicio, LocalDateTime fechaFinal);
 	public boolean fechasSolapadas(LocalDateTime fechaInicio, LocalDateTime fechaFin,LocalDateTime fechaInicio2, LocalDateTime fechaFin2) ;
 	public Reserva retirarVehiculoReservado(String numeroReserva);
+	
+	public List<Vehiculo> buscarTodosVehiculos();
+	public List<VehiculoVIP> reporteVEhiculosVIP(Integer mes, Integer anio);
+	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin); 
 	
 }

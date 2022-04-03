@@ -1,6 +1,7 @@
 package ec.edu.uce.repository;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -69,5 +70,29 @@ public class VehiculoRepoImpl implements IVehiculoRepo{
 			LOG.info("Resercas rep"+reserva);
 		}
 		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public List<Vehiculo> buscarTodosVehiculos() {
+		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v", Vehiculo.class);
+		//relacionamientos
+		List<Vehiculo> listaVehiculos=myQuery.getResultList();
+		for (Vehiculo v : listaVehiculos) {
+			LOG.info("reserva"+ v.getReservas());
+		}
+		return listaVehiculos;
+	}
+
+	@Override
+	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v WHERE v.reservas.fechaInicio>=:valor1 AND v.reservas.fechaFin<=:valor2 ", Vehiculo.class);
+		myQuery.setParameter("valor1", fechaInicio);
+		myQuery.setParameter("valor2", fechaFin);
+		//relacionamientos
+		List<Vehiculo> listaVehiculos=myQuery.getResultList();
+		for (Vehiculo v : listaVehiculos) {
+			LOG.info("reserva"+ v.getReservas());
+		}
+		return listaVehiculos;
 	}
 }
