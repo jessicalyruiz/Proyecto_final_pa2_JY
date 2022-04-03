@@ -1,5 +1,6 @@
 package ec.edu.uce.repository.modelo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
@@ -31,13 +32,28 @@ public class Cobro {
 	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
 	private LocalDateTime fecha;
 	
-	@OneToOne(mappedBy = "cobro", cascade = CascadeType.ALL)
+	@Column(name = "cobr_valor_subtotal")
+	private BigDecimal valorSubtotal;
+	
+	@Column(name = "cobr_valor_iva")
+	private BigDecimal valorIVA;
+	
+	@Column(name = "cobr_valor_total_pagar")
+	private BigDecimal valorTotalPagar;
+	
+	
+	@OneToOne(mappedBy = "cobro")
 	private Reserva reserva;
 	
+	/*
 	@OneToOne
 	@JoinColumn(name="cobr_fk_tarjeta")
 	private Tarjeta tarjeta;
-
+	*/
+	
+	@Column(name = "cobr_tarjeta")
+	private String tarjeta;
+	
 	//GET Y SET
 	public Integer getId() {
 		return id;
@@ -55,6 +71,30 @@ public class Cobro {
 		this.fecha = fecha;
 	}
 
+	public BigDecimal getValorSubtotal() {
+		return valorSubtotal;
+	}
+
+	public void setValorSubtotal(BigDecimal valorSubtotal) {
+		this.valorSubtotal = valorSubtotal;
+	}
+
+	public BigDecimal getValorIVA() {
+		return valorIVA;
+	}
+
+	public void setValorIVA(BigDecimal valorIVA) {
+		this.valorIVA = valorIVA;
+	}
+
+	public BigDecimal getValorTotalPagar() {
+		return valorTotalPagar;
+	}
+
+	public void setValorTotalPagar(BigDecimal valorTotalPagar) {
+		this.valorTotalPagar = valorTotalPagar;
+	}
+
 	public Reserva getReserva() {
 		return reserva;
 	}
@@ -62,7 +102,7 @@ public class Cobro {
 	public void setReserva(Reserva reserva) {
 		this.reserva = reserva;
 	}
-
+/*
 	public Tarjeta getTarjeta() {
 		return tarjeta;
 	}
@@ -70,11 +110,31 @@ public class Cobro {
 	public void setTarjeta(Tarjeta tarjeta) {
 		this.tarjeta = tarjeta;
 	}
+	*/
+	
 
+	
+
+	public String getTarjeta() {
+		return tarjeta;
+	}
+
+	public void setTarjeta(String tarjeta) {
+		this.tarjeta = tarjeta;
+	}
+	/*
 	@Override
 	public String toString() {
 		return "Cobro [id=" + id + ", fecha=" + fecha + "]";
+	}*/
+
+	@Override
+	public String toString() {
+		return "Cobro [id=" + id + ", fecha=" + fecha + ", valorSubtotal=" + valorSubtotal + ", valorIVA=" + valorIVA
+				+ ", valorTotalPagar=" + valorTotalPagar + ", tarjeta=" + tarjeta + "]";
 	}
+
+	
 	
 	
 }

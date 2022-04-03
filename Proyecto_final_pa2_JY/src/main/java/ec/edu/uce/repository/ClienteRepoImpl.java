@@ -6,10 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 
 import ec.edu.uce.repository.modelo.Cliente;
 import ec.edu.uce.repository.modelo.Reserva;
@@ -18,8 +20,9 @@ import ec.edu.uce.repository.modelo.Reserva;
 @Transactional
 public class ClienteRepoImpl implements IClienteRepo{
 
-	private static final Logger LOG =  LoggerFactory.getLogger(ClienteRepoImpl.class);
-
+	//private static final Logger LOG =  LoggerFactory.getLogger(ClienteRepoImpl.class);
+	private static Logger LOG=Logger.getLogger(ClienteRepoImpl.class);
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -52,8 +55,10 @@ public class ClienteRepoImpl implements IClienteRepo{
 		TypedQuery<Cliente> myQuery=this.entityManager.createQuery("Select c from Cliente c  where c.cedula=:valor", Cliente.class);
 		myQuery.setParameter("valor", cedula);
 		List<Reserva> reservas=myQuery.getSingleResult().getReserva();
+		if(reservas!=null) {
 		for (Reserva reserva : reservas) {
 			LOG.info("Resercas rep"+reserva);
+		}
 		}
 		return myQuery.getSingleResult();
 	}

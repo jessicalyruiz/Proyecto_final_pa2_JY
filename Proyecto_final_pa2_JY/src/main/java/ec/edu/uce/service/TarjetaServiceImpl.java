@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import ec.edu.uce.repository.ITarjetaRepo;
 import ec.edu.uce.repository.modelo.Tarjeta;
 
-@Service
+//@Service
 public class TarjetaServiceImpl implements ITarjetaService {
 
 	@Autowired

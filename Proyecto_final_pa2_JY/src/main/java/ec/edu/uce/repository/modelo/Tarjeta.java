@@ -10,22 +10,22 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tarjeta")
+//@Entity
+//@Table(name = "tarjeta")
 public class Tarjeta {
 
 	
 	@Id
-	@Column(name = "cobr_id")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_cobro")
-	@SequenceGenerator(name = "seq_cobro", sequenceName = "seq_cobro", allocationSize = 1)
+	@Column(name = "tarj_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_tarj")
+	@SequenceGenerator(name = "seq_tarj", sequenceName = "seq_tarj", allocationSize = 1)
 	private Integer id;
 	
-	@Column(name = "cobr_numero")
+	@Column(name = "tarj_numero")
 	private String numero;
 	
 	
-	@Column(name = "cobr_marca")
+	@Column(name = "tarj_marca")
 	private String marca;
 	
 	@OneToOne(mappedBy = "tarjeta", cascade = CascadeType.ALL)

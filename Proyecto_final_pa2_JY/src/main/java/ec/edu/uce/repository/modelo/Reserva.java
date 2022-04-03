@@ -3,6 +3,7 @@ package ec.edu.uce.repository.modelo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,21 +28,14 @@ public class Reserva {
 	private Integer id;
 	
 	@Column(name = "rese_fecha_inicio", columnDefinition = "TIMESTAMP")
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDateTime fechaInicio;
 	
 	@Column(name = "rese_fecha_fin", columnDefinition = "TIMESTAMP")
-	@DateTimeFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 	private LocalDateTime fechaFin;
 	
-	@Column(name = "rese_valor_subtotal")
-	private BigDecimal valorSubtotal;
 	
-	@Column(name = "rese_valor_iva")
-	private BigDecimal valorIVA;
-	
-	@Column(name = "rese_valor_total_pagar")
-	private BigDecimal valorTotalPagar;
 	
 	@Column(name = "rese_numero")
 	private String numero;
@@ -49,16 +43,16 @@ public class Reserva {
 	@Column(name = "rese_estado")
 	private String estado;
 	
-	@ManyToOne
+	@ManyToOne( cascade = CascadeType.ALL)
 	@JoinColumn(name="rese_fk_cliente")
 	private Cliente cliente;
 	
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="rese_fk_vehiculo")
 	private Vehiculo vehiculo;
 	
-	@OneToOne
+	@OneToOne( cascade = CascadeType.ALL)
 	@JoinColumn(name="rese_fk_cobro")
 	private Cobro cobro;
 
@@ -87,29 +81,7 @@ public class Reserva {
 		this.fechaFin = fechaFin;
 	}
 
-	public BigDecimal getValorSubtotal() {
-		return valorSubtotal;
-	}
 
-	public void setValorSubtotal(BigDecimal valorSubtotal) {
-		this.valorSubtotal = valorSubtotal;
-	}
-
-	public BigDecimal getValorIVA() {
-		return valorIVA;
-	}
-
-	public void setValorIVA(BigDecimal valorIVA) {
-		this.valorIVA = valorIVA;
-	}
-
-	public BigDecimal getValorTotalPagar() {
-		return valorTotalPagar;
-	}
-
-	public void setValorTotalPagar(BigDecimal valorTotalPagar) {
-		this.valorTotalPagar = valorTotalPagar;
-	}
 
 	public String getNumero() {
 		return numero;
@@ -153,10 +125,11 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", valorSubtotal="
-				+ valorSubtotal + ", valorIVA=" + valorIVA + ", valorTotalPagar=" + valorTotalPagar + ", numero="
-				+ numero + ", estado=" + estado + "]";
+		return "Reserva [id=" + id + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", numero=" + numero
+				+ ", estado=" + estado + ", cliente=" + cliente + "]";
 	}
+
+
 	
 	
 }

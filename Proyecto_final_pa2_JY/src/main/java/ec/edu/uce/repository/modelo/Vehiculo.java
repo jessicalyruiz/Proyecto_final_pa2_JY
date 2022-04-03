@@ -58,7 +58,7 @@ public class Vehiculo {
 	@Column(name = "vehi_cilindraje")
 	private Float cilindraje;
 	
-	@OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "vehiculo")
 	private List<Reserva> reservas;
 
 	//GET Y SET

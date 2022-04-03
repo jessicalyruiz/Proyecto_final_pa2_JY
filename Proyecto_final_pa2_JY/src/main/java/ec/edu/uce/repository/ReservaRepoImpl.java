@@ -1,7 +1,11 @@
 package ec.edu.uce.repository;
 
+import java.math.BigInteger;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,5 +41,26 @@ public class ReservaRepoImpl implements IReservaRepo {
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 		this.entityManager.remove(this.read(id));
+	}
+
+	@Override
+	public Reserva obtenerUltimoRegistro() {
+		TypedQuery<Reserva> myQuery=this.entityManager.createQuery("Select r from Reserva r ORDER BY r.numero DESC", Reserva.class);
+		myQuery.setMaxResults(1);
+		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public BigInteger obtenerTotalRegistros() {
+		Query myQuery=this.entityManager.createNativeQuery("SELECT COUNT(*) FROM RESERVA");
+		
+		return  (BigInteger) myQuery.getSingleResult();
+	}
+
+	@Override
+	public Reserva buscarNumero(String numero) {
+		TypedQuery<Reserva> myQuery=this.entityManager.createQuery("Select r from Reserva r where r.numero=:valor", Reserva.class);
+		myQuery.setParameter("valor", numero);
+		return myQuery.getSingleResult();
 	}
 }

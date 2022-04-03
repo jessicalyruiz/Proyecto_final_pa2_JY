@@ -8,8 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ec.edu.uce.repository.modelo.Tarjeta;
 
-@Repository
-@Transactional
+//@Repository
+//@Transactional
 public class TarjetaRepoImpl implements ITarjetaRepo {
 
 	@PersistenceContext

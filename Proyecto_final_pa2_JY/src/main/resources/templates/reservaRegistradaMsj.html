@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+	
+	<div class="table table-dark table-striped">
+		<table>
+			<!--Para tablas dimanicas-->
+			<!--cabecera tabla-->
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Placa</th>
+					<th>Marca</th>
+					<th>Modelo</th>
+					<th>Estado</th>
+					<th>Año de Fabricación</th>
+					<th>Valor por día</th>
+					<th>fecha Disponibilidad</th>
+					<th>País de fabricación</th>
+					<th>Avaluo</th>
+					<th>Cilindraje</th>
+					<th>Reserva</th>
+				</tr>
+			</thead>
+			<!--cuerpo tabla-->
+			<tbody>
+				<tr>
+
+					<td th:text="${vehiculo.id}"></td>
+					<td th:text="${vehiculo.placa}"></td>
+					<td th:text="${vehiculo.marca}"></td>
+					<td th:text="${vehiculo.modelo}"></td>
+					<td th:text="${vehiculo.estado}"></td>
+					<td th:text="${vehiculo.anioFabricacion}" ></td>
+					<td th:text="${vehiculo.valorPorDia}" ></td>
+					<td th:text="${vehiculo.fechaDisponibilidad}" ></td>
+					<td th:text="${vehiculo.paisFabricacion}" ></td>
+					<td th:text="${vehiculo.avaluo}" ></td>
+					<td th:text="${vehiculo.cilindraje}" ></td>
+					<td th:text="${vehiculo.reservas}" ></td>
+				<tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>

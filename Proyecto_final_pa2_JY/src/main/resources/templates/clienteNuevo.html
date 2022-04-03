@@ -12,6 +12,7 @@
 <body>
 <h1>Ser cliente</h1>
 	<form th:action="@{/clientes/registrar}" th:object="${cliente}" method="POST">
+		<div class="table table-dark table-striped">
 		<table>
 			<tr>
 				<td>
@@ -61,7 +62,8 @@
 			<tr>
 			</tr>
 		</table>
-		<input type="submit" value="Registrarse">
+		</div>
+		<input class="btn btn-outline-dark" type="submit" value="Registrarse">
 	</form>
 </body>
 

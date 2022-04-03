@@ -47,7 +47,7 @@ public class Cliente {
 	@Column(name = "clie_tipo_registro")
 	private String tipoRegistro;
 	
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cliente")
 	private List<Reserva> reserva;
 
 	//GET Y SET

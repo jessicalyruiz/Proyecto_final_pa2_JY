@@ -17,7 +17,7 @@ public class Empleado {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_empleado")
 	@SequenceGenerator(name = "seq_empleado", sequenceName = "seq_empleado", allocationSize = 1)
 	private Integer id;
-	
+	 
 
 	@Column(name = "empl_apellido")
 	private String apellido;
@@ -27,7 +27,7 @@ public class Empleado {
 	
 	@Column(name = "empl_cedula")
 	private String cedula;
-
+ 
 	
 	//GET Y SET
 	public Integer getId() {

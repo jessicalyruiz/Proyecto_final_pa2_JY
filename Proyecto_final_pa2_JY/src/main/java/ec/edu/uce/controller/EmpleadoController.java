@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ec.edu.uce.repository.modelo.Cliente;
+import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.service.IClienteService;
 import ec.edu.uce.service.IVehiculoService;
@@ -89,5 +90,24 @@ public class EmpleadoController {
 		return "mostrarVehiculo";
 
 	}
+	
+	
+	// primer metodo para retirar vehiculo
+		@GetMapping("retirarVehiculoBuscar")
+		public String obtenerPaginaRetirarVehiculo(Reserva reserva) {
+			return "retirarVehiculo";
+
+		}
+
+		// segundo metodo para retirar vehiculo
+		@GetMapping("retirarVehiculoReservado")
+		public String retirarVehiculo(Model modelo,Reserva reserva) {
+			Reserva reservaR=this.vehiculoService.retirarVehiculoReservado(reserva.getNumero());
+			modelo.addAttribute("reservaR", reservaR); 
+			return "retirarVehiculoMostrar";
+
+		}
+		
+	
 
 }

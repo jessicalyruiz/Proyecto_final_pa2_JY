@@ -25,23 +25,19 @@
 			<th>Estado</th>
 			<th>Valor por Día</th>
 			
-			<th>Borrar</th>
 		</tr>
 	</thead>
 	<!--cuerpo tabla-->
 	<tbody>
 		<tr th:each="vehiculoBuscar:${vehiculos}">
-		<form action="#" th:action="@{/buscarVehiculo}" th:object="${vehiculoBuscar}"th:method="GET">-->
+		
 			<td th:text="${vehiculoBuscar.placa}" ></td>
 			<td th:text="${vehiculoBuscar.modelo}" ></td>
 			<td th:text="${vehiculoBuscar.marca}" ></td>
 			<td th:text="${vehiculoBuscar.anioFabricacion}" ></td>
 			<td th:text="${vehiculoBuscar.estado}" ></td>
 			<td th:text="${vehiculoBuscar.valorPorDia}" ></td>
-			<td>
-				<input type="submit" value="Borrar">
-			</td>
-		</form>
+	
 		<tr>
 	</tbody>
 </table>
