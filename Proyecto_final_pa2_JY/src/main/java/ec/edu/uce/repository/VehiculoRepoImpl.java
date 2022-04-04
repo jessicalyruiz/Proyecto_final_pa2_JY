@@ -14,18 +14,18 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.repository.modelo.VehiculoBuscar;
 
 @Repository
 @Transactional
-public class VehiculoRepoImpl implements IVehiculoRepo{
+public class VehiculoRepoImpl implements IVehiculoRepo {
 
-	//private static final Logger LOG =  LoggerFactory.getLogger(VehiculoRepoImpl.class);
-	private static Logger LOG=Logger.getLogger(VehiculoRepoImpl.class);
-	
+	// private static final Logger LOG =
+	// LoggerFactory.getLogger(VehiculoRepoImpl.class);
+	private static Logger LOG = Logger.getLogger(VehiculoRepoImpl.class);
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -55,7 +55,9 @@ public class VehiculoRepoImpl implements IVehiculoRepo{
 
 	@Override
 	public List<VehiculoBuscar> buscarVehiculosDisponibles(String marca, String modelo) {
-		TypedQuery<VehiculoBuscar> myQuery=this.entityManager.createQuery("Select NEW ec.edu.uce.repository.modelo.VehiculoBuscar(v.placa, v.modelo, v.marca, v.anioFabricacion, v.estado,v.valorPorDia) FROM Vehiculo v where v.marca=:valor1 and v.modelo=: valor2 ", VehiculoBuscar.class);
+		TypedQuery<VehiculoBuscar> myQuery = this.entityManager.createQuery(
+				"Select NEW ec.edu.uce.repository.modelo.VehiculoBuscar(v.placa, v.modelo, v.marca, v.anioFabricacion, v.estado,v.valorPorDia) FROM Vehiculo v where v.marca=:valor1 and v.modelo=: valor2 ",
+				VehiculoBuscar.class);
 		myQuery.setParameter("valor1", marca);
 		myQuery.setParameter("valor2", modelo);
 		return myQuery.getResultList();
@@ -63,36 +65,40 @@ public class VehiculoRepoImpl implements IVehiculoRepo{
 
 	@Override
 	public Vehiculo buscarPlaca(String placa) {
-		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v where v.placa=:valor", Vehiculo.class);
+		TypedQuery<Vehiculo> myQuery = this.entityManager.createQuery("Select v from Vehiculo v where v.placa=:valor",
+				Vehiculo.class);
 		myQuery.setParameter("valor", placa);
-		List<Reserva> reservas=myQuery.getSingleResult().getReservas();
-		for (Reserva reserva : reservas) {
-			LOG.info("Resercas rep"+reserva);
+		List<Reserva> reservas = myQuery.getSingleResult().getReservas();
+		if (reservas != null) {
+			for (Reserva reserva : reservas) {
+				LOG.info("Resercas rep" + reserva);
+			}
 		}
 		return myQuery.getSingleResult();
 	}
 
 	@Override
 	public List<Vehiculo> buscarTodosVehiculos() {
-		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v", Vehiculo.class);
-		//relacionamientos
-		List<Vehiculo> listaVehiculos=myQuery.getResultList();
+		TypedQuery<Vehiculo> myQuery = this.entityManager.createQuery("Select v from Vehiculo v", Vehiculo.class);
+		// relacionamientos
+		List<Vehiculo> listaVehiculos = myQuery.getResultList();
 		for (Vehiculo v : listaVehiculos) {
-			LOG.info("reserva"+ v.getReservas());
+			LOG.info("reserva" + v.getReservas());
 		}
 		return listaVehiculos;
 	}
 
-	
 	@Override
 	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		TypedQuery<Vehiculo> myQuery=this.entityManager.createQuery("Select v from Vehiculo v JOIN v.reservas r WHERE r.fechaInicio>=:valor1 AND r.fechaFin<=:valor2 ", Vehiculo.class);
+		TypedQuery<Vehiculo> myQuery = this.entityManager.createQuery(
+				"Select v from Vehiculo v JOIN v.reservas r WHERE r.fechaInicio>=:valor1 AND r.fechaFin<=:valor2 ",
+				Vehiculo.class);
 		myQuery.setParameter("valor1", fechaInicio);
 		myQuery.setParameter("valor2", fechaFin);
-		//relacionamientos
-		List<Vehiculo> listaVehiculos=myQuery.getResultList();
+		// relacionamientos
+		List<Vehiculo> listaVehiculos = myQuery.getResultList();
 		for (Vehiculo v : listaVehiculos) {
-			LOG.info("reserva"+ v.getReservas());
+			LOG.info("reserva" + v.getReservas());
 			System.out.println(v.toString());
 		}
 		return listaVehiculos;

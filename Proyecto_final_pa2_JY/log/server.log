@@ -1445,3 +1445,147 @@
 [2022-04-04 01:17:39] [ INFO ] [VehiculoRepoImpl:95] reserva[Reserva [id=21, fechaInicio=2022-04-04T16:17, fechaFin=2022-04-20T16:17, numero=00021, estado=generada, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=23, fechaInicio=2022-08-04T16:17, fechaFin=2022-08-20T16:17, numero=00023, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=24, fechaInicio=2022-08-04T16:17, fechaFin=2022-08-20T16:17, numero=00024, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=25, fechaInicio=2022-09-04T16:17, fechaFin=2022-09-08T16:17, numero=00025, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=26, fechaInicio=2022-09-04T16:17, fechaFin=2022-09-08T16:17, numero=00026, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=27, fechaInicio=2022-03-02T18:55, fechaFin=2022-03-04T18:55, numero=00027, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=28, fechaInicio=2021-12-02T18:55, fechaFin=2021-12-04T18:55, numero=00028, estado=E, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=38, fechaInicio=2022-04-01T00:15, fechaFin=2022-04-03T00:15, numero=00038, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]]
 [2022-04-04 01:19:47] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
 [2022-04-04 01:19:56] [ INFO ] [VehiculoRepoImpl:95] reserva[Reserva [id=21, fechaInicio=2022-04-04T16:17, fechaFin=2022-04-20T16:17, numero=00021, estado=generada, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=23, fechaInicio=2022-08-04T16:17, fechaFin=2022-08-20T16:17, numero=00023, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=24, fechaInicio=2022-08-04T16:17, fechaFin=2022-08-20T16:17, numero=00024, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=25, fechaInicio=2022-09-04T16:17, fechaFin=2022-09-08T16:17, numero=00025, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=26, fechaInicio=2022-09-04T16:17, fechaFin=2022-09-08T16:17, numero=00026, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=27, fechaInicio=2022-03-02T18:55, fechaFin=2022-03-04T18:55, numero=00027, estado=G, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=28, fechaInicio=2021-12-02T18:55, fechaFin=2021-12-04T18:55, numero=00028, estado=E, cliente=Cliente [id=6, apellido=Ruiz, nombre=Lorena, cedula=789456, fechaNacimiento=1993-12-10, genero=femenino, tipoRegistro=C]], Reserva [id=38, fechaInicio=2022-04-01T00:15, fechaFin=2022-04-03T00:15, numero=00038, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]]
+[2022-04-04 01:54:55] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 01:58:11] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 01:59:55] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:03:37] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:07:17] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:10:17] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:11:21] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:13:27] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:13:32] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:21:15] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:21:21] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:22:13] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:22:14] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:23:14] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:23:15] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:27:24] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:27:29] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:27:30] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:28:47] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:28:53] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:28:54] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:29:24] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:29:25] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:31:40] [ INFO ] [ClienteRepoImpl:60] Resercas repReserva [id=36, fechaInicio=2022-02-03T23:32, fechaFin=2022-02-05T23:33, numero=00036, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]
+[2022-04-04 02:31:40] [ INFO ] [ClienteRepoImpl:60] Resercas repReserva [id=37, fechaInicio=2023-01-04T00:11, fechaFin=2023-01-06T00:11, numero=00037, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]
+[2022-04-04 02:31:40] [ INFO ] [ClienteRepoImpl:60] Resercas repReserva [id=38, fechaInicio=2022-04-01T00:15, fechaFin=2022-04-03T00:15, numero=00038, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]
+[2022-04-04 02:31:40] [ INFO ] [VehiculoServiceImpl:94] vehiculo disponible
+[2022-04-04 02:31:40] [ INFO ] [ProyectoFinalPa2JyApplication:67] valor total 44.7999999999999998223643160599749535322189331054687500000
+[2022-04-04 02:31:40] [ INFO ] [ProyectoFinalPa2JyApplication:74] Vehiculo Disponible, Valor total a Pagar 44.7999999999999998223643160599749535322189331054687500000
+[2022-04-04 02:31:42] [ INFO ] [ClienteRepoImpl:60] Resercas repReserva [id=36, fechaInicio=2022-02-03T23:32, fechaFin=2022-02-05T23:33, numero=00036, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]
+[2022-04-04 02:31:42] [ INFO ] [ClienteRepoImpl:60] Resercas repReserva [id=37, fechaInicio=2023-01-04T00:11, fechaFin=2023-01-06T00:11, numero=00037, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]
+[2022-04-04 02:31:42] [ INFO ] [ClienteRepoImpl:60] Resercas repReserva [id=38, fechaInicio=2022-04-01T00:15, fechaFin=2022-04-03T00:15, numero=00038, estado=G, cliente=Cliente [id=4, apellido=sisalima, nombre=Wilson, cedula=12345, fechaNacimiento=null, genero=masculino, tipoRegistro=C]]
+[2022-04-04 02:31:42] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:34:38] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:38] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:34:44] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:47] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:49] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:51] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:52] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:54] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:55] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:57] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:58] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:34:59] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:35:00] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:36:07] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:38:04] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:38:05] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:40:17] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:41:26] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:42:29] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:42:30] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:48:20] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:48:20] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:54:40] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:54:41] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:54:41] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:59:09] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 02:59:10] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:59:10] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 02:59:10] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:00:02] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:00:03] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:00:03] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:00:03] [ INFO ] [VehiculoRepoImpl:101] reserva[Reserva [id=null, fechaInicio=null, fechaFin=null, numero=null, estado=null, cliente=null]]
+[2022-04-04 03:00:03] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:41:07] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:41:08] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:41:08] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:41:08] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:41:08] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:45:10] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:45:11] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:45:11] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:45:11] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:45:11] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:46:49] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:46:50] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:46:50] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:46:50] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:46:50] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:47:24] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:47:25] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:47:25] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:47:25] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:47:25] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:48:44] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:48:45] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:48:45] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:48:45] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:48:45] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:49:28] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:49:29] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:49:29] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:49:29] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:49:29] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:55:25] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:55:26] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:55:26] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:55:26] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:55:26] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:56:14] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:56:15] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:56:15] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:56:15] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 03:57:23] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 03:57:24] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:03:05] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:03:06] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:04:27] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:04:28] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:04:28] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:04:28] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:04:28] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:07:47] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:07:48] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:07:48] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:07:48] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:07:48] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:08:41] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:08:42] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:08:42] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:08:42] [ INFO ] [VehiculoRepoImpl:101] reserva[Reserva [id=87, fechaInicio=2022-05-10T00:00, fechaFin=2022-05-11T00:00, numero=00087, estado=G, cliente=Cliente [id=118, apellido=yanez, nombre=Jessica, cedula=789900rr0ee, fechaNacimiento=1992-06-24, genero=femenino, tipoRegistro=null]]]
+[2022-04-04 04:08:42] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:08:42] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:10:39] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:10:40] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:10:40] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:10:40] [ INFO ] [VehiculoRepoImpl:101] reserva[Reserva [id=91, fechaInicio=2022-05-10T00:00, fechaFin=2022-05-11T00:00, numero=00091, estado=G, cliente=Cliente [id=122, apellido=yanez, nombre=Jessica, cedula=789900rr0ee, fechaNacimiento=1992-06-24, genero=femenino, tipoRegistro=null]]]
+[2022-04-04 04:10:40] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:10:40] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:30:31] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:30:53] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:31:47] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:32:25] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:33:49] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:36:12] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:36:52] [ INFO ] [ProyectoFinalPa2JyApplication:55] final project
+[2022-04-04 04:36:53] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:36:53] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:36:53] [ INFO ] [VehiculoRepoImpl:101] reserva[Reserva [id=104, fechaInicio=2022-05-10T00:00, fechaFin=2022-05-11T00:00, numero=000104, estado=G, cliente=Cliente [id=131, apellido=yanez, nombre=Jessica, cedula=789900rr0ee, fechaNacimiento=1992-06-24, genero=femenino, tipoRegistro=null]]]
+[2022-04-04 04:36:53] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible
+[2022-04-04 04:36:54] [ INFO ] [VehiculoServiceImpl:112] vehiculo disponible

@@ -26,6 +26,8 @@ public interface IVehiculoService {
 	
 	public List<Vehiculo> buscarTodosVehiculos();
 	public List<VehiculoVIP> reporteVEhiculosVIP(Integer mes, Integer anio);
-	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin); 
+	public List<Vehiculo> buscarFechas(LocalDateTime fechaInicio, LocalDateTime fechaFin);
+	public List<Reserva> buscarReservasVehiculoFecha(Vehiculo vechiculo, LocalDateTime fechaInicio,
+			LocalDateTime FechaFin);
 	
 }
