@@ -1,5 +1,6 @@
 package ec.edu.uce.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ec.edu.uce.repository.modelo.Cliente;
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
+import ec.edu.uce.repository.modelo.VehiculoBuscar;
 import ec.edu.uce.service.IClienteService;
 import ec.edu.uce.service.IVehiculoService;
 
@@ -91,14 +94,14 @@ public class EmpleadoController {
 	}
 	
 	
-	// primer metodo para retirar vehiculo
+	// primer metodo para retirar vehiculo reservado
 		@GetMapping("retirarVehiculoBuscar")
 		public String obtenerPaginaRetirarVehiculo(Reserva reserva) {
 			return "retirarVehiculo";
 
 		}
 
-		// segundo metodo para retirar vehiculo
+		// segundo metodo para retirar vehiculo reservado
 		@GetMapping("retirarVehiculoReservado")
 		public String retirarVehiculo(Model modelo,Reserva reserva) {
 			Reserva reservaR=this.vehiculoService.retirarVehiculoReservado(reserva.getNumero());
@@ -107,6 +110,81 @@ public class EmpleadoController {
 
 		}
 		
-	
+		
+// ********** retirar vehiculo sin reserva
+		
+		// primer metodo para buscar vehiculos disponibles
+		@GetMapping("buscarVehiculos")
+		public String obtenerPaginaIngresoMarcaModelo(Vehiculo vehiculo) {
+			return "buscarVehiculoDispSR";
+
+		}
+
+		// segundo metodo para buscar vehiculos disponibles
+		@GetMapping("buscar/disponibles")
+		public String mostrarVehiculosDisponibles(Vehiculo vehiculo, Model modelom) {
+			List<VehiculoBuscar> vehiculosBuscados = this.vehiculoService.buscarVehiculosDisponibles(vehiculo.getMarca(),
+					vehiculo.getModelo());
+			modelom.addAttribute("vehiculos", vehiculosBuscados);
+			return "listaVehiculosDisponiblesSR";
+
+		}
+		
+
+		// primer metodo para reservar vehiculo
+		@GetMapping("reservar/buscarVehiculo")
+		public String obtenerPaginaBuscarVehiculo(Reserva reserva) {
+			return "reservarBuscarVehiculoSR";
+
+		}
+
+		// segundo metodo para reservar vehiculo
+		@GetMapping("verificarVehiculo")
+		public String verificarVehiculo(Model modelo, Reserva reserva, BindingResult result, RedirectAttributes redirect) {
+			Vehiculo vehiculoBuscar = this.vehiculoService.buscarPlaca(reserva.getVehiculo().getPlaca());
+			BigDecimal valorTotal=this.vehiculoService.calcularPagoVehiculo(reserva.getVehiculo().getPlaca(),
+					reserva.getCliente().getCedula(), reserva.getFechaInicio(), reserva.getFechaFin());
+			//LOG.info("valor total "+ valorTotal);
+			modelo.addAttribute("reserva", reserva);
+			
+			List<Reserva> reservasVehiculo = vehiculoBuscar.getReservas();
+			if (reservasVehiculo == null || reservasVehiculo.isEmpty()) {
+				String mensaje="Vehiculo Disponible, Valor total a Pagar $"+valorTotal;
+				redirect.addFlashAttribute("mensaje", mensaje );
+				//LOG.info("Vehiculo Disponible, Valor total a Pagar "+valorTotal.toString());
+				return "pagarVehiculoSR";
+			} else {
+				for (Reserva r : reservasVehiculo) {
+					if (this.vehiculoService.fechasSolapadas(reserva.getFechaInicio(), reserva.getFechaFin(),
+							r.getFechaInicio(), r.getFechaFin())) {
+						
+						redirect.addFlashAttribute("mensaje", "Fechas Solapadas, elija otras fechas");
+				//		LOG.info("Fechas Solapadas, elija otras fechas"); 
+						return "reservarBuscarVehiculoSR"; 
+					}
+				}
+				String mensaje="Vehiculo Disponible, Valor total a Pagar $"+valorTotal;
+				redirect.addFlashAttribute("mensaje", mensaje);
+				//LOG.info("Vehiculo Disponible, Valor total a Pagar "+valorTotal.toString());
+				 return "pagarVehiculoSR";
+			}
+
+			
+
+		}
+
+		// tercer metodo para reservar vehiculo
+		@PutMapping("reservar/pagarVehiculo")
+		public String pagarVehiculo(Model modelo, Reserva reserva) {
+			Reserva reservaGenerada = this.vehiculoService.reservarVehiculo(reserva.getVehiculo().getPlaca(),
+					reserva.getCliente().getCedula(), reserva.getFechaInicio(), reserva.getFechaFin(),
+					reserva.getCobro().getTarjeta());
+			Reserva reservaR=this.vehiculoService.retirarVehiculoReservado(reservaGenerada.getNumero());
+			modelo.addAttribute("reservaR", reservaR); 
+			return "retirarVehiculoMostrarSR";
+
+
+		}
+		
 
 }
