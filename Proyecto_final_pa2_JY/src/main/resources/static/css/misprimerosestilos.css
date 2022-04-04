@@ -1,3 +1,30 @@
 h1{
 	color:aqua;
 }
+ul,ol{
+	list-style: none;
+}
+.nav li a{
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	padding: 10px 15px;
+	display: block;
+}
+.nav li a:hover{
+	background-color:  dimgray;
+	}
+	
+
+.nav > li{
+	float: left;
+}
+
+.nav li ul{
+	display: none;
+	position: absolute;
+	min-width: 140px;
+	}
+	.nav li:hover >ul{
+		display: block;
+	}

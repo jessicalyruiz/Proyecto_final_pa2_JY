@@ -83,55 +83,6 @@ public class VehiculoServiceImpl implements IVehiculoService{
 		return this.vehiculoRepo.buscarPlaca(placa);
 	}
 	
-/*
-	@Override
-	@Transactional
-	public void reservarVehiculo(String placa, String cedula, LocalDateTime fechaInicio, LocalDateTime fechaFinal) {
-		// TODO Auto-generated method stub
-		Vehiculo vehiculo=this.buscarPlaca(placa);
-		Duration duracion= Duration.between(fechaInicio, fechaFinal);
-		long dias=duracion.toDays();
-		
-		Cliente cliente=this.clienteService.buscarCedula(cedula);
-		
-		if(vehiculo.getEstado().equalsIgnoreCase("D")) {
-			LOG.info("vehiculo disponible");
-			BigDecimal valorsubTotal=vehiculo.getValorPorDia().multiply(new BigDecimal(dias));
-			BigDecimal valorIVA=valorsubTotal.multiply(new BigDecimal(0.12));
-			BigDecimal valorTotal=valorsubTotal.add(valorIVA);
-			
-			List<Reserva> reservasCliente=cliente.getReserva();
-			Reserva reserva=new Reserva();
-			reserva.setCliente(cliente);
-			reserva.setEstado("generada");
-			reserva.setFechaFin(fechaFinal);
-			reserva.setFechaInicio(fechaInicio);
-			reserva.setValorIVA(valorIVA);
-			reserva.setValorSubtotal(valorsubTotal);
-			reserva.setValorTotalPagar(valorTotal);
-			reserva.setVehiculo(vehiculo);
-			reserva.setNumero(this.generarNumeroReserva());
-			this.reservaService.create(reserva);
-			
-			List<Reserva> reservaVehiculo=vehiculo.getReservas();
-			reservaVehiculo.add(reserva);
-			vehiculo.setReservas(reservaVehiculo);
-			vehiculo.setFechaDisponibilidad(fechaFinal);
-			vehiculo.setEstado("N");
-			this.vehiculoRepo.update(vehiculo);
-			
-			reservasCliente.add(reserva);
-			cliente.setReserva(reservasCliente);
-			this.clienteService.update(cliente);
-		}else {
-			LOG.info("Vehiculo no disponible en esa fecha");
-			LOG.info("fecha disponibilidad"+vehiculo.getFechaDisponibilidad());
-			
-		}
-		
-		
-	}
-	*/
 	
 		@Override
 	public BigDecimal calcularPagoVehiculo(String placa, String cedula,LocalDateTime fechaInicio, LocalDateTime fechaFinal) {

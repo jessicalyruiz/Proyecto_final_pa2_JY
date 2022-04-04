@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import ec.edu.uce.repository.modelo.ClienteVIP;
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.repository.modelo.VehiculoBuscar;
+import ec.edu.uce.repository.modelo.VehiculoVIP;
+import ec.edu.uce.service.IClienteService;
 import ec.edu.uce.service.IReservaService;
 import ec.edu.uce.service.IVehiculoService;
 
@@ -22,7 +25,13 @@ public class ReporteController {
 
 	@Autowired
 	private IReservaService reservaService;
+
+	@Autowired
+	private IClienteService clienteService;
 	
+	@Autowired
+	private IVehiculoService vehiculoService;
+
 	// primer metodo reporteReservas
 	@GetMapping("reporteReservas")
 	public String obtenerPaginaIngresarDatosReporteReservas(Reserva reserva) {
@@ -32,11 +41,36 @@ public class ReporteController {
 
 	// segundo metodo reporteReservas
 	@GetMapping("reporteReservasMostrar")
-	public String retirarVehiculo(Model modelo, Reserva reserva) {
-		List<Reserva> listaReservas=this.reservaService.reporteReservas(reserva.getFechaInicio(), reserva.getFechaFin());
+	public String reporteReservasMostrar(Model modelo, Reserva reserva) {
+		List<Reserva> listaReservas = this.reservaService.reporteReservas(reserva.getFechaInicio(),
+				reserva.getFechaFin());
 		modelo.addAttribute("listaReservas", listaReservas);
 		return "reporteReservasMostrar";
 
 	}
 
+	// reporte Clientes VIP
+	@GetMapping("reporteClientesVIP")
+	public String reporteClientesVIP(Model modelo, ClienteVIP clienteVIP) {
+		List<ClienteVIP> listaClientesVIP = this.clienteService.reporteClientesVIP();
+		modelo.addAttribute("listaClientesVIP", listaClientesVIP);
+		return "reporteClientesVIP";
+
+	}
+
+	// primer metodo reporteVehiculosVIP
+	@GetMapping("reporteVehiculosVIP")
+	public String obtenerPaginaIngresarDatosReporteVehiculosVIP(Integer mes, Integer anio) {
+		return "reporteVehiculosVIP";
+
+	}
+
+	// segundo metodo reporteReservas
+	@GetMapping("reporteVehiculosVIPMostrar")
+	public String reporteVehiculosVIPMostrar(Model modelo, Integer mes, Integer anio) {
+		List<VehiculoVIP> listaVechiculoVIP = this.vehiculoService.reporteVEhiculosVIP(mes, anio);
+		modelo.addAttribute("listaVechiculoVIP", listaVechiculoVIP);
+		return "reporteVehiculosVIPMostrar";
+
+	}
 }
