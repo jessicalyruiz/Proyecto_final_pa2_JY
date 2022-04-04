@@ -54,8 +54,7 @@ public class EmpleadoController {
 	@GetMapping("mostrarCliente")
 	public String buscarCliente(Model modelo, Cliente cliente) {
 		Cliente clienteBuscar = this.clienteService.buscarCedula(cliente.getCedula());
-		modelo.addAttribute("cliente", clienteBuscar); // el que esta entre comillas es el nombre para llamarle en la
-														// vista html
+		modelo.addAttribute("cliente", clienteBuscar); 
 		return "mostrarCliente";
 
 	}

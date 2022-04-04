@@ -135,7 +135,7 @@ public class ProyectoFinalPa2JyApplication implements CommandLineRunner{
 		
 		System.out.println("********"+numeroReservas);
 		*/
-		
+		/*
 		
 		LocalDateTime fechaInicio=LocalDateTime.of(2022, 10, 01, 10, 0);
 		LocalDateTime fechaFin=LocalDateTime.of(2022, 10, 11, 10, 0);
@@ -157,7 +157,7 @@ public class ProyectoFinalPa2JyApplication implements CommandLineRunner{
 			System.out.println(c.toString());
 		}
 		
-		
+		*/
 	}
 
 

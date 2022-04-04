@@ -11,8 +11,8 @@
 </head>
 
 <body>
-<h1>Reporte Vehiculos VIP</h1>
-	<form th:action="@{/reportes/reporteVehiculosVIPMostrar}"  method="get">
+<h1>Reporte de Vehiculos VIP</h1>
+	<form th:action="@{/reportes/reporteVehiculosVIPMostrar}" th:object="${mesAnio}" method="get">
 		<div class="table table-dark table-striped">
 		<table>
 			<tr>
@@ -20,7 +20,7 @@
 					<label>Año:</label>
 				</td>
 				<td>
-					<input type="number" step="1" id="aniio" th:object="${anio}">
+					<input type="number" step="1" id="anio" th:value="2022" th:field="*{anio}">
 				</td>
 			</tr>
 			<tr>
@@ -29,7 +29,7 @@
 				</td>
 				<td>
 					
-					<select th:name="mes" id="mes" th:object="${mes}">
+					<select th:name="mes" id="mes" th:field="*{mes}">
 						<option th:value="seleccionar" text="Seleccionar"></option>
 						<option th:value="1" th:text="Enero"></option>
 						<option th:value="2" th:text="Febrero"></option>

@@ -7,6 +7,7 @@
 	<meta http-equiv="x-ua-compatible">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link href="../css/misprimerosestilos.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -46,10 +47,37 @@
 					<td th:text="${vehiculo.paisFabricacion}" ></td>
 					<td th:text="${vehiculo.avaluo}" ></td>
 					<td th:text="${vehiculo.cilindraje}" ></td>
-					<td th:text="${vehiculo.reservas}" ></td>
+					<td  >
+					
+						<table id="tabla2">
+							<!--Para tablas dimanicas-->
+							<!--cabecera tabla-->
+							<thead>
+								<tr>
+									<th>Numero</th>
+									<th>Fecha de inicio</th>
+									<th>Fecha fin</th>
+									<th>Valor total </th>
+
+								</tr>
+							</thead>
+							<!--cuerpo tabla-->
+							<tbody>
+								<tr th:each="reserva:${vehiculo.reservas}">
+
+									<td th:text="${reserva.numero}"></td>
+									<td th:text="${reserva.fechaInicio}"></td>
+									<td th:text="${reserva.fechaFin}"></td>
+									<td th:text="${#numbers.formatDecimal(reserva.cobro.valorTotalPagar,1,2)}"></td>
+								<tr>
+							</tbody>
+						</table>
+					
+					
+					</td>
 				<tr>
 			</tbody>
 		</table>
 	</div>
-
+	<a href="/">HOME</a>
 </body>
