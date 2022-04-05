@@ -11,9 +11,13 @@
 </head>
 
 <body>
-
+<div th:if="${reserva!=null} AND ${reserva.cobro!=null}">
+		<h3> Vehiculo disponible</h3>
+		<h4> total a pagar: </h4>
+		<h4 th:text="${#numbers.formatDecimal(reserva.cobro.valorTotalPagar,1,2)}"></h4>
+</div>
 <h1>Pagar vehículo</h1>
-<div class="alert alert-success" role="alert" th:text="${mensaje}" th:if="${mensaje!=null}"> </div>
+<!--<div class="alert alert-success" role="alert" th:text="${mensaje}" th:if="${mensaje!=null}"> </div>-->
 	<form th:action="@{/empleados/reservar/pagarVehiculo}" th:object="${reserva}" th:method="put">
 		<div class="table table-dark table-striped">
 		<table>

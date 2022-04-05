@@ -13,6 +13,9 @@
 
 <body>
 <div class="alert alert-danger" role="alert" th:if="${mensaje!=null}" th:text="${mensaje}" > </div>
+<div th:if="${reserva!=null} AND ${reserva.cobro!=null}">
+		<h3> fechas solapadas</h3>
+</div>
 <h1>Reservar vehículo</h1>
 	<form th:action="@{/clientes/verificarVehiculo}" th:object="${reserva}" method="get">
 		<div class="table table-dark table-striped">

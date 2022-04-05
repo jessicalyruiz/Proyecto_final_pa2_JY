@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ec.edu.uce.repository.modelo.Cliente;
+import ec.edu.uce.repository.modelo.Cobro;
 import ec.edu.uce.repository.modelo.Reserva;
 import ec.edu.uce.repository.modelo.Vehiculo;
 import ec.edu.uce.repository.modelo.VehiculoBuscar;
@@ -130,10 +131,11 @@ public class EmpleadoController {
 
 		}
 		
-
+ 
 		// primer metodo para reservar vehiculo
 		@GetMapping("reservar/buscarVehiculo")
-		public String obtenerPaginaBuscarVehiculo(Reserva reserva) {
+		public String obtenerPaginaBuscarVehiculo(Reserva reserva, Model modelo) {
+			modelo.addAttribute("reserva", reserva);
 			return "reservarBuscarVehiculoSR";
 
 		}
@@ -145,6 +147,9 @@ public class EmpleadoController {
 			BigDecimal valorTotal=this.vehiculoService.calcularPagoVehiculo(reserva.getVehiculo().getPlaca(),
 					reserva.getCliente().getCedula(), reserva.getFechaInicio(), reserva.getFechaFin());
 			//LOG.info("valor total "+ valorTotal);
+			Cobro cobro=new Cobro();
+			cobro.setValorTotalPagar(valorTotal);
+			reserva.setCobro(cobro);
 			modelo.addAttribute("reserva", reserva);
 			
 			List<Reserva> reservasVehiculo = vehiculoBuscar.getReservas();
@@ -170,12 +175,15 @@ public class EmpleadoController {
 			}
 
 			
-
+  
 		}
 
 		// tercer metodo para reservar vehiculo
 		@PutMapping("reservar/pagarVehiculo")
 		public String pagarVehiculo(Model modelo, Reserva reserva) {
+			if(reserva.getCobro().getTarjeta().isEmpty()) {
+				reserva.getCobro().setTarjeta(null);
+			}
 			Reserva reservaGenerada = this.vehiculoService.reservarVehiculo(reserva.getVehiculo().getPlaca(),
 					reserva.getCliente().getCedula(), reserva.getFechaInicio(), reserva.getFechaFin(),
 					reserva.getCobro().getTarjeta());

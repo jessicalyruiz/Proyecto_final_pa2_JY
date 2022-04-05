@@ -1,6 +1,7 @@
 package ec.edu.uce.controller;
 
 import java.math.BigDecimal;
+import java.security.cert.CollectionCertStoreParameters;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -53,7 +54,8 @@ public class ClienteController {
 
 	// primer metodo para reservar vehiculo
 	@GetMapping("reservar/buscarVehiculo")
-	public String obtenerPaginaBuscarVehiculo(Reserva reserva) {
+	public String obtenerPaginaBuscarVehiculo(Reserva reserva, Model modelo) {
+		modelo.addAttribute("reserva", reserva);
 		return "reservarBuscarVehiculo";
 
 	}
@@ -65,12 +67,15 @@ public class ClienteController {
 		BigDecimal valorTotal=this.vehiculoService.calcularPagoVehiculo(reserva.getVehiculo().getPlaca(),
 				reserva.getCliente().getCedula(), reserva.getFechaInicio(), reserva.getFechaFin());
 		LOG.info("valor total "+ valorTotal);
+		Cobro cobro=new Cobro();
+		cobro.setValorTotalPagar(valorTotal);
+		reserva.setCobro(cobro);
 		modelo.addAttribute("reserva", reserva);
 		
 		List<Reserva> reservasVehiculo = vehiculoBuscar.getReservas();
 		if (reservasVehiculo == null || reservasVehiculo.isEmpty()) {
-			String mensaje="Vehiculo Disponible, Valor total a Pagar $"+valorTotal;
-			redirect.addFlashAttribute("mensaje", mensaje );
+			//String mensaje="Vehiculo Disponible, Valor total a Pagar $"+valorTotal;
+			//redirect.addFlashAttribute("mensaje", mensaje );
 			LOG.info("Vehiculo Disponible, Valor total a Pagar "+valorTotal.toString());
 			return "pagarVehiculo";
 		} else {
@@ -78,13 +83,14 @@ public class ClienteController {
 				if (this.vehiculoService.fechasSolapadas(reserva.getFechaInicio(), reserva.getFechaFin(),
 						r.getFechaInicio(), r.getFechaFin())) {
 					
-					redirect.addFlashAttribute("mensaje", "Fechas Solapadas, elija otras fechas");
+					//redirect.addFlashAttribute("mensaje", "Fechas Solapadas, elija otras fechas");
 					LOG.info("Fechas Solapadas, elija otras fechas"); 
 					return "reservarBuscarVehiculo"; 
+					
 				}
 			}
-			String mensaje="Vehiculo Disponible, Valor total a Pagar $"+valorTotal;
-			redirect.addFlashAttribute("mensaje", mensaje);
+			//String mensaje="Vehiculo Disponible, Valor total a Pagar $"+valorTotal;
+			//redirect.addFlashAttribute("mensaje", mensaje);
 			LOG.info("Vehiculo Disponible, Valor total a Pagar "+valorTotal.toString());
 			 return "pagarVehiculo";
 		}
@@ -96,6 +102,9 @@ public class ClienteController {
 	// tercer metodo para reservar vehiculo
 	@PutMapping("reservar/pagarVehiculo")
 	public String pagarVehiculo(Model modelo, Reserva reserva) {
+		if(reserva.getCobro().getTarjeta().isEmpty()) {
+			reserva.getCobro().setTarjeta(null);
+		}
 		Reserva reservaGenerada = this.vehiculoService.reservarVehiculo(reserva.getVehiculo().getPlaca(),
 				reserva.getCliente().getCedula(), reserva.getFechaInicio(), reserva.getFechaFin(),
 				reserva.getCobro().getTarjeta());
