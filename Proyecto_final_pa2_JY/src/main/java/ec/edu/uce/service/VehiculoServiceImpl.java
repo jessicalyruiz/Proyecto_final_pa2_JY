@@ -170,6 +170,7 @@ public class VehiculoServiceImpl implements IVehiculoService {
 	}
 
 	@Override
+	@Transactional
 	public Reserva retirarVehiculoReservado(String numeroReserva) {
 		// TODO Auto-generated method stub
 		Reserva reserva = this.reservaService.buscarNumero(numeroReserva);
@@ -207,20 +208,22 @@ public class VehiculoServiceImpl implements IVehiculoService {
 			BigDecimal valorSubtotal = new BigDecimal(0);
 			BigDecimal valorTotal = new BigDecimal(0);
 			List<Reserva> reservasVehiculo = this.buscarReservasVehiculoFecha(v, fechaInicio, fechaFin);
-			System.out.println("***** vehiculo" + v);
+			//System.out.println("***** vehiculo" + v);
 
 			for (Reserva r : reservasVehiculo) {
-				System.out.println("*****" + r);
-				System.out.println("**** subtotal" + valorSubtotal);
+				//System.out.println("*****" + r);
+				//System.out.println("**** subtotal" + valorSubtotal);
 				valorSubtotal = valorSubtotal.add(r.getCobro().getValorSubtotal());
 				valorTotal = valorTotal.add(r.getCobro().getValorTotalPagar());
-				System.out.println("**** subtotal:" + valorSubtotal);
-				System.out.println("**** total" + valorTotal);
+				//System.out.println("**** subtotal:" + valorSubtotal);
+				//System.out.println("**** total" + valorTotal);
 			}
 			VehiculoVIP vehiculoVIP = new VehiculoVIP(v.getPlaca(), v.getModelo(), v.getMarca(), v.getAnioFabricacion(),
 					v.getValorPorDia(), valorSubtotal, valorTotal);
 			vehiculosVIP.add(vehiculoVIP);
 		}
+		
+		
 		List<VehiculoVIP> listaOrdenada = vehiculosVIP.parallelStream()
 				.sorted(Comparator.comparing(VehiculoVIP::getValorTotal)).collect(Collectors.toList());
 		// ordeno mayor a menor

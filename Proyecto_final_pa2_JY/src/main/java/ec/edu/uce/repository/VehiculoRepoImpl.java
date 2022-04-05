@@ -2,7 +2,9 @@ package ec.edu.uce.repository;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -99,8 +101,12 @@ public class VehiculoRepoImpl implements IVehiculoRepo {
 		List<Vehiculo> listaVehiculos = myQuery.getResultList();
 		for (Vehiculo v : listaVehiculos) {
 			LOG.info("reserva" + v.getReservas());
-			System.out.println(v.toString());
+			//System.out.println(v.toString());
 		}
+		Set<Vehiculo> vehiculoNoRep=new HashSet<Vehiculo>(listaVehiculos);
+		listaVehiculos.clear();
+		listaVehiculos.addAll(vehiculoNoRep);
+	
 		return listaVehiculos;
 	}
 }

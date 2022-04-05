@@ -64,8 +64,8 @@ public class ReporteController {
 	// primer metodo reporteVehiculosVIP
 	@GetMapping("reporteVehiculosVIP")
 	public String obtenerPaginaIngresarDatosReporteVehiculosVIP(MesAnio mesAnio) {
-		System.out.println("****anio"+mesAnio.getMes());
-		System.out.println("***mes "+mesAnio.getAnio());
+		//System.out.println("****anio"+mesAnio.getMes());
+	//	System.out.println("***mes "+mesAnio.getAnio());
 		return "reporteVehiculosVIP";
 
 	}
@@ -73,8 +73,8 @@ public class ReporteController {
 	// segundo metodo reporteReservas
 	@GetMapping("reporteVehiculosVIPMostrar")
 	public String reporteVehiculosVIPMostrar(Model modelo, MesAnio mesAnio) {
-		System.out.println("****anio"+mesAnio.getMes());
-		System.out.println("***mes "+mesAnio.getAnio());
+		//System.out.println("****anio"+mesAnio.getMes());
+		//System.out.println("***mes "+mesAnio.getAnio());
 		List<VehiculoVIP> listaVechiculoVIP = this.vehiculoService.reporteVEhiculosVIP(mesAnio.getMes(), mesAnio.getAnio());
 		modelo.addAttribute("listaVechiculoVIP", listaVechiculoVIP);
 		return "reporteVehiculosVIPMostrar";
